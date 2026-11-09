@@ -1,0 +1,3 @@
+NAME                     IMAGE                                                                                           COMMAND                  SERVICE   CREATED              STATUS                        PORTS
+module4-feedback-app-1   module4-feedback-board:1.0                                                                      "sh -c 'exec uvicorn…"   app       About a minute ago   Up About a minute (healthy)   127.0.0.1:8014->8000/tcp
+module4-feedback-db-1    postgres:17.11-alpine@sha256:3540c0362c809df084ffac0ae69fe794515f9de92692f02178bcdce0ef0302ac   "docker-entrypoint.s…"   db        About a minute ago   Up About a minute (healthy)   5432/tcp

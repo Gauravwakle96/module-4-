@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple feedback board. Leave a short message and read recent feedback.">
+    <meta name="theme-color" content="#243e63">
+    <title>Feedback Board | Module 3</title>
+    <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <p class="module">Module 3 · Web application</p>
+      <h1>Feedback Board</h1>
+      <p>Leave a short message. See what others have shared.</p>
+    </header>
+    <main>
+      <section aria-labelledby="form-heading">
+        <h2 id="form-heading">Share your feedback</h2>
+        <form id="feedback-form">
+          <label for="name">Your name</label>
+          <input id="name" name="name" maxlength="60" autocomplete="name" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" maxlength="500" rows="4" required aria-describedby="public-note"></textarea>
+          <p id="public-note" class="hint">Messages are public. Please avoid personal information.</p>
+          <button id="submit" type="submit">Submit feedback</button>
+          <p id="form-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+        <noscript>Please enable JavaScript to submit and view feedback.</noscript>
+      </section>
+      <section aria-labelledby="recent-heading">
+        <div class="section-heading">
+          <div>
+            <h2 id="recent-heading">Recent feedback</h2>
+            <p id="count" class="hint">Latest 10 messages</p>
+          </div>
+          <button id="refresh" class="secondary" type="button">Refresh</button>
+        </div>
+        <p id="list-status" class="status" role="status" aria-live="polite">Loading feedback…</p>
+        <ul id="feedback-list" aria-label="Recent feedback"></ul>
+      </section>
+    </main>
+    <footer>Built by Gaurav Wakle · Module 3 submission</footer>
+  </body>
+</html>

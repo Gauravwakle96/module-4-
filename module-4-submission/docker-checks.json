@@ -1,0 +1,39 @@
+{
+  "checked_at": "2026-11-09T15:58:08.183244+00:00",
+  "url": "http://localhost:8014",
+  "health": {
+    "status": "ok",
+    "database": "postgresql"
+  },
+  "services": [
+    {
+      "name": "module4-feedback-app-1",
+      "image": "module4-feedback-board:1.0",
+      "health": "healthy"
+    },
+    {
+      "name": "module4-feedback-db-1",
+      "image": "postgres:17.11-alpine@sha256:3540c0362c809df084ffac0ae69fe794515f9de92692f02178bcdce0ef0302ac",
+      "health": "healthy"
+    }
+  ],
+  "image": {
+    "tag": "module4-feedback-board:1.0",
+    "id": "sha256:ffd62c0c7b5e2ca35ae5e18c8106d246b70d8e4d39a3320d1efc673ba62ebbea",
+    "size_bytes": 290189250,
+    "runtime_user": "10001:10001"
+  },
+  "checks": {
+    "save_and_list": true,
+    "validation": true,
+    "new_container_ids_after_recreation": true,
+    "data_survives_recreation": true,
+    "db_outage_503_and_recovery": true,
+    "app_read_only": true,
+    "capabilities_dropped": true,
+    "db_port_not_published": true,
+    "internal_db_network": true,
+    "image_excludes_env_and_tests": true
+  },
+  "persistent_volume": "module4-feedback_feedback_data"
+}

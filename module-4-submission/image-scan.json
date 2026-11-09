@@ -1,0 +1,30 @@
+{
+  "tool": "Trivy 0.76.2",
+  "created_at": "2026-11-09T15:57:13.753742318Z",
+  "image": "module4-feedback-board:1.0",
+  "image_id": "sha256:ffd62c0c7b5e2ca35ae5e18c8106d246b70d8e4d39a3320d1efc673ba62ebbea",
+  "scan_options": {
+    "scanners": [
+      "vuln"
+    ],
+    "severity": [
+      "HIGH",
+      "CRITICAL"
+    ],
+    "ignore_unfixed": true
+  },
+  "targets": [
+    {
+      "target": "module4-feedback-board:1.0 (debian 12.15)",
+      "class": "os-pkgs",
+      "type": "debian",
+      "vulnerabilities": []
+    },
+    {
+      "target": "Python",
+      "class": "lang-pkgs",
+      "type": "python-pkg",
+      "vulnerabilities": []
+    }
+  ]
+}

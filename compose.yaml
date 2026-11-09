@@ -1,0 +1,76 @@
+name: module4-feedback
+
+services:
+  app:
+    build:
+      context: .
+      target: runtime
+    image: module4-feedback-board:1.0
+    ports:
+      - "127.0.0.1:${APP_PORT:-8014}:8000"
+    environment:
+      ENVIRONMENT: local
+      DATABASE_URL: "postgresql://feedback:${POSTGRES_PASSWORD:?Run python scripts/setup_docker.py first}@db:5432/feedback"
+      DATABASE_SSLMODE: disable
+      ALLOWED_HOSTS: localhost,127.0.0.1
+      FEEDBACK_LIMIT: "500"
+      WRITE_LIMIT: "10"
+    depends_on:
+      db:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 100
+    mem_limit: 256m
+    cpus: 0.50
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+    networks:
+      - frontend
+      - backend
+
+  db:
+    image: postgres:17.11-alpine@sha256:3540c0362c809df084ffac0ae69fe794515f9de92692f02178bcdce0ef0302ac
+    environment:
+      POSTGRES_DB: feedback
+      POSTGRES_USER: feedback
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?Run python scripts/setup_docker.py first}"
+    volumes:
+      - feedback_data:/var/lib/postgresql/data
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/01-feedback.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U feedback -d feedback"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 100
+    mem_limit: 256m
+    cpus: 0.50
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+    networks:
+      - backend
+
+volumes:
+  feedback_data:
+
+networks:
+  frontend:
+  backend:
+    internal: true

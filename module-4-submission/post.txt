@@ -1,0 +1,11 @@
+Completed Module 4: Docker & Containerization by containerizing my Feedback Board web application.
+
+Source code → Dockerfile → Image → Container → Docker Compose → Running application.
+
+The setup runs FastAPI and PostgreSQL in separate containers, with health checks, a private network, and a persistent database volume. I used a multi-stage Dockerfile and a non-root application user.
+
+All 28 tests passed inside a Linux container. I verified that feedback remains saved after replacing both Compose containers.
+
+GitHub: https://github.com/Gauravwakle96/module-4-
+
+#Docker #DockerCompose #DevOps #Python #PostgreSQL #LearningByDoing

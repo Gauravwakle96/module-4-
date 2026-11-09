@@ -1,0 +1,20 @@
+{
+  "url": "http://localhost:8014",
+  "deployment": "Docker Compose + PostgreSQL",
+  "browser_submit_and_reload": true,
+  "javascript_errors": [],
+  "accessibility": [
+    {
+      "width": 1280,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "violations": []
+    }
+  ]
+}

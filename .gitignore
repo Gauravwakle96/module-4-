@@ -1,0 +1,16 @@
+*.sqlite3
+*.sqlite3-*
+.venv/
+.env
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+.env.*
+!.env.example
+!.env.docker.example
+*.key
+*.pem
+.coverage
+htmlcov/

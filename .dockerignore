@@ -1,0 +1,14 @@
+# Only runtime source and test/build inputs can enter the Docker build context.
+**
+!Dockerfile
+!.dockerignore
+!requirements.txt
+!pyproject.toml
+!feedback_board/
+!feedback_board/**
+!tests/
+!tests/**
+**/__pycache__/
+**/*.pyc
+**/*.sqlite3
+**/.env*
